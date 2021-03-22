@@ -12,6 +12,6 @@
 
 * Hosting on ReadTheDocs - free for open source - ReadTheDocs [Website](https://readthedocs.org/ "Here").
 
-* Other considerations - using markdown language - MkDocs [Website](https://www.mkdocs.org/ "Here").
+* Other considerations - using markdown language - MkDocs [Website](https://www.mkdocs.org/ "Here")
 
-##
+### `More`
