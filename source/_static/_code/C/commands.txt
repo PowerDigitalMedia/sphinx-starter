@@ -1,0 +1,8 @@
+
+
+*** Generate
+gcc -o codeTest codeTest.c
+
+
+*** Run
+./codeTest

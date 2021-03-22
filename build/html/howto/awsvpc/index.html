@@ -1,0 +1,353 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Setting Up: AWS Virtual Private Cloud (VPC) &mdash; ImpelosDocs</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/PowerDigitalMedia.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/js/open_links_in_tab.js"></script>
+        <script src="../../_static/js/youtube/youtube_iframe_funx.js"></script>
+        <script src="../../_static/js/youtube/YT_ready.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Multimedia" href="../../samples/multimedia/index.html" />
+    <link rel="prev" title="Table of Contents" href="../../index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #181b21" >
+          
+
+          
+            <a href="../../index.html">
+          
+
+          
+            
+            <img src="../../_static/logo-blue.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">HOW TO:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Setting Up: AWS Virtual Private Cloud (VPC)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#overview">OVERVIEW</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#create-a-vpc">CREATE A VPC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#create-subnets">CREATE SUBNETS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#create-internet-gateway">CREATE INTERNET GATEWAY</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#edit-route-table">EDIT ROUTE TABLE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#create-security-group">CREATE SECURITY GROUP</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">SAMPLES:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../samples/multimedia/index.html">Multimedia</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../samples/layout/index.html">Sample Layout</a></li>
+</ul>
+<p class="caption"><span class="caption-text">PLAYGROUND:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../sphinx_cheat_sheet/index.html">Sphinx Cheat Sheet</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">ImpelosDocs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Setting Up: AWS Virtual Private Cloud (VPC)</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/howto/awsvpc/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="setting-up-aws-virtual-private-cloud-vpc">
+<span id="howto-awsvpc-onthispage"></span><h1>Setting Up: AWS Virtual Private Cloud (VPC)<a class="headerlink" href="#setting-up-aws-virtual-private-cloud-vpc" title="Permalink to this headline">¶</a></h1>
+<p>Information was pulled from a Quip document created by James.</p>
+<div class="pdm-separator-blue"></div><div class="pdm-title">
+
+    On This Page
+
+</div><div class="line-block">
+<div class="line"><a class="reference internal" href="#howto-awsvpc-section1"><span class="std std-ref">OVERVIEW</span></a></div>
+<div class="line"><a class="reference internal" href="#howto-awsvpc-section2"><span class="std std-ref">CREATE A VPC</span></a></div>
+<div class="line"><a class="reference internal" href="#howto-awsvpc-section3"><span class="std std-ref">CREATE SUBNETS</span></a></div>
+<div class="line"><a class="reference internal" href="#howto-awsvpc-section4"><span class="std std-ref">CREATE INTERNET GATEWAY</span></a></div>
+<div class="line"><a class="reference internal" href="#howto-awsvpc-section5"><span class="std std-ref">EDIT ROUTE TABLE</span></a></div>
+<div class="line"><a class="reference internal" href="#howto-awsvpc-section6"><span class="std std-ref">CREATE SECURITY GROUP</span></a></div>
+</div>
+<div class="pdm-spacer"></div>
+<div class="pdm-separator"></div><div class="section" id="overview">
+<span id="howto-awsvpc-section1"></span><h2>OVERVIEW<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<div class="line-block">
+<div class="line">A virtual private cloud needs the following components:</div>
+</div>
+<ul class="simple">
+<li><p>A VPC with a size /16 IPv4 CIDR block (example: 172.31.0.0/16). This provides up to 65,536 private IPv4 addresses.</p></li>
+<li><p>A size /20 default subnet in each Availability Zone. This provides up to 4,096 addresses per subnet, a few of which are reserved for our use.</p></li>
+<li><p>An internet gateway (<a class="reference external" href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Internet_Gateway.html">https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Internet_Gateway.html</a>) to connect the internet to your default VPC. This includes a routing table.</p></li>
+<li><p>A default security group associated with your default VPC.</p></li>
+<li><p>A default network access control list (ACL) and associate it with your default VPC. (Optional)</p></li>
+</ul>
+<div class="pdm-spacer"></div>
+<div class="pdm-separator"></div></div>
+<div class="section" id="create-a-vpc">
+<span id="howto-awsvpc-section2"></span><h2>CREATE A VPC<a class="headerlink" href="#create-a-vpc" title="Permalink to this headline">¶</a></h2>
+<p>First we’ll create the VPC itself. In the VPC Service section of AWS, click “<em>Your VPCs</em>” then click the blue “<em>Create VPC</em>” button at the top. You’ll need a <em>Name</em> for your VPC first. Second, choose an IP for your <em>IPv4 CIDR block</em>. The first two numbers can technically be whatever you wish, leave the second two as zero, and end it with /16 to designate the last two numbers as variable.</p>
+<p>Optionally, you can choose to create an <em>IPv6 CIDR block</em> as well, and it is recommended if you do to choose one provided by Amazon to save you trouble.</p>
+<p>Lastly, you may choose between default or dedicated <em>tenancy</em>. Basically whether your VPC will be sharing resources with others in Amazon’s cloud. Dedicated obviously will dedicate resources to your VPC only, but may cost more. We chose Default.</p>
+<p>It should look similar to this.</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../../_images/image.png"><img alt="Image" src="../../_images/image.png" style="width: 100%;" /></a>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line">Once you are satisfied with the configuration, create the VPC.</div>
+</div>
+<div class="pdm-spacer"></div>
+<div class="pdm-separator"></div></div>
+<div class="section" id="create-subnets">
+<span id="howto-awsvpc-section3"></span><h2>CREATE SUBNETS<a class="headerlink" href="#create-subnets" title="Permalink to this headline">¶</a></h2>
+<p>Now you should create at least one subnet. Click on the “<em>Subnets</em>” section just below “Your VPCs”. You’ll need to select a <em>Name</em>, select the <em>VPC</em> you created, and select an <em>availability zone</em> for the subnet to reside in.</p>
+<p>It should look similar to below.</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../../_images/image(1).png"><img alt="Image" src="../../_images/image(1).png" style="width: 100%;" /></a>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line">Once those are selected, create a subnet using the first two numbers from your IPv4 CIDR block, (in our case it was 10.20). The third number will vary depending on the available ips and the fourth number will remain 0.  Give it /20 at the end to designate 4090 available IPs within the subnet. You can allocate more ips if you wish in more subnets.</div>
+</div>
+<div class="line-block">
+<div class="line">It should look similar to below.</div>
+</div>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../../_images/image(2).png"><img alt="Image" src="../../_images/image(2).png" style="width: 100%;" /></a>
+</div>
+<div class="pdm-spacer"></div>
+<div class="pdm-separator"></div></div>
+<div class="section" id="create-internet-gateway">
+<span id="howto-awsvpc-section4"></span><h2>CREATE INTERNET GATEWAY<a class="headerlink" href="#create-internet-gateway" title="Permalink to this headline">¶</a></h2>
+<p>To allow external access, we need a gateway to connect to the internet. Click on the “<em>Internet Gateways</em>” section on the left and click the blue “<em>Create Internet Gateway</em>” button at the top of the section.</p>
+<p>Simply give it a name and click Create. Once created, select the Internet Gateway you just created, then click on the “<em>Actions</em>” drop down menu next to the “<em>Create Internet Gateway</em>” button. Select “<em>Attach to VPC</em>”, select the VPC you created and click Attach.</p>
+<p>You should now have a Gateway attached, but need to route traffic through it to the VPC.</p>
+<div class="pdm-spacer"></div>
+<div class="pdm-separator"></div></div>
+<div class="section" id="edit-route-table">
+<span id="howto-awsvpc-section5"></span><h2>EDIT ROUTE TABLE<a class="headerlink" href="#edit-route-table" title="Permalink to this headline">¶</a></h2>
+<p>You now should allow internet traffic through the gateway in the routing table. Click on the “<em>Route Tables</em>” section and you should see a route table created for your VPC. Select it and then at the bottom of the section where the details are displayed, select “<em>Routes</em>”, and then click the “<em>Edit Routes</em>” button.</p>
+<p>On the edit routes page, click “<em>Add Route</em>”, and enter a blank ip of 0.0.0.0/0 to represent all traffic. For the <em>Target</em>, select your internet gateway. It should be something like “igw-stringofnumbers”.</p>
+<p>It should look similar to below.</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../../_images/image(3).png"><img alt="Image" src="../../_images/image(3).png" style="width: 100%;" /></a>
+</div>
+<div class="pdm-spacer"></div>
+<div class="pdm-separator"></div></div>
+<div class="section" id="create-security-group">
+<span id="howto-awsvpc-section6"></span><h2>CREATE SECURITY GROUP<a class="headerlink" href="#create-security-group" title="Permalink to this headline">¶</a></h2>
+<p>A security group is basically a set of firewall rules to allow traffic in and out of your VPC and/or specific instances. It can be specifically related to a single instance, or applied to an entire VPC. For now, we’ll create a public access security group that allows internet traffic to access your servers.</p>
+<p>Go to the “<em>Security Groups</em>” section and you’ll see a few default security groups. Click on the blue “<em>Create Security Group</em>” button at the top.</p>
+<p>Give the group a <em>Name</em>, <em>Description</em>, and associate it with the VPC you created. Then click create. Once created, you should see it in the list. Select it and the details for the security group should show up on the bottom half of the page. Select the “<em>Inbound Rules</em>” tab, and click “<em>Edit Rules</em>”.</p>
+<p>On the new edit rules page, you should be able to add new rules, select the protocol, port, and incoming source. You’ll want to add the following rules.</p>
+<ul class="simple">
+<li><p>An HTTP inbound rule for “nonsecure” internet traffic (port 80)</p></li>
+<li><p>An HTTPS inbound rule for “secure” internet traffic (port 443)</p></li>
+<li><p>SSH access to whitelist any remote admins for your instances.</p></li>
+</ul>
+<p>It should look similar to below.</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../../_images/image(4).png"><img alt="Image" src="../../_images/image(4).png" style="width: 100%;" /></a>
+</div>
+<p>The only outbound rule for now should be all traffic from the VPC can be sent outward. If you wish to secure your servers even more later, you can add rules to specify which can send outward.</p>
+<p>For now it should look like this.</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../../_images/image(4).png"><img alt="Image" src="../../_images/image(4).png" style="width: 100%;" /></a>
+</div>
+<p>Now you should have everything setup to be able to create an Instance on your VPC and access it through SSH.</p>
+<div class="pdm-spacer"></div>
+<div class="pdm-spacer"></div>
+<div class="pdm-separator-blue"></div><div class="line-block">
+<div class="line"><a class="reference internal" href="#howto-awsvpc-onthispage"><span class="std std-ref">Setting Up: AWS Virtual Private Cloud (VPC)</span></a></div>
+<div class="line"><a class="reference internal" href="../../index.html#toc-label"><span class="std std-ref">Table of Contents</span></a></div>
+</div>
+<p>This is a test site made with the Sphinx documentation tool. This particular one is a modification
+of the Sphinx Awesome Template. To view the specifics of the this template <a class="reference external" href="http://sphinxawesome.xyz">Click Here</a></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="../../samples/multimedia/index.html" class="btn btn-neutral float-right" title="Multimedia" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../../index.html" class="btn btn-neutral float-left" title="Table of Contents" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, TM.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+    <!-- Theme Analytics -->
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-XXXXXXX-1', 'auto');
+    
+    ga('send', 'pageview');
+    </script>
+
+    
+   
+
+</body>
+</html>
