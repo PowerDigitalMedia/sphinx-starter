@@ -14,4 +14,4 @@
 
 * Other considerations - using markdown language - MkDocs [Website](https://www.mkdocs.org/ "Here")
 
-### `More`
+###
