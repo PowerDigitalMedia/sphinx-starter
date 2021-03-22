@@ -14,9 +14,4 @@
 
 * Other considerations - using markdown language - MkDocs [Website](https://www.mkdocs.org/ "Here").
 
-# sphinx-starter
-# sphinx-starter
-# sphinx-starter
-# sphinx-starter
-# sphinx-starter
-# sphinx-starter
+##
